@@ -1,0 +1,24 @@
+<mat-accordion>
+  <mat-expansion-panel
+    *ngFor="let item of items; trackBy: trackById"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ item.strDrink }}
+      </mat-panel-title>
+
+      <mat-panel-description>
+        {{ item.strCategory }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="item">
+      <img [src]="item.strDrinkThumb" [alt]="item.strDrink">
+      <p>{{ item.strInstructions }}</p>
+    </div>
+
+    <mat-action-row *ngIf="!isFavList">
+      <button mat-button color="primary" (click)="onAddToFav(item)">Add to favourites</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,22 @@
+<div>
+  <mat-form-field>
+    <input
+      #query
+      [value]="query$ | async"
+      matInput
+      placeholder="Enter drink name..."
+    >
+  </mat-form-field>
+
+  <app-drink-list
+    [items]="results$ | async"
+    (addToFav)="onAddToFav($event)"
+  ></app-drink-list>
+</div>
+
+<div>
+  <app-drink-list
+    [isFavList]="true"
+    [items]="fav$ | async"
+  ></app-drink-list>
+</div>
